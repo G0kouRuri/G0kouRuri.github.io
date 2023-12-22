@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>我的技术与生活——Hello World | Hexo</title>
+  <title>我的技术与生活——Gamma校正 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="shortcut icon" href="/imgs/shortcut-icon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/css/public.css" />
@@ -16,7 +16,7 @@
 
   <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
   <script>
-    document.title = `我的技术与生活——Hello World`
+    document.title = `我的技术与生活——Gamma校正`
   </script>
 <meta name="generator" content="Hexo 7.0.0"></head>
 
@@ -351,7 +351,7 @@
 
 <div class="article-container">
   <div class="article">
-    <h1 class="article-title">Hello World</h1>
+    <h1 class="article-title">Gamma校正</h1>
     <div class="article-info">
       <div class="article-info--item">
         <div class="article-info--info">
@@ -364,34 +364,44 @@
           
           <div class="article-info--tags">
             <span>标签：</span>
-            
+            <a class="tag-link" href="/tags/%E6%9D%82%E9%A1%B9/" rel="tag">杂项</a>
           </div>
           
-          <p class="article-info--date">日期：2023-12-07 15:45:03</p>
+          <p class="article-info--date">日期：2023-12-21 22:44:49</p>
         </div>
         <img src="/imgs/default-cover.webp" alt="" class="article-cover">
       </div>
     </div>
     <article class="article-content markdown-body">
-      <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+      <h1 id="Gamma校正"><a href="#Gamma校正" class="headerlink" title="Gamma校正"></a>Gamma校正</h1><p><strong>gamma</strong></p>
+<p>1.现实的光照是满足线性关系的：有一个光子（输入），就发出1的亮度（输出），有两个光子，就发出2的亮度，也即两个光子的亮度是一个光子亮度的两倍，把这种线性对映关系叫做gamma1（ f(x)&#x3D;x^1 ）。2.人眼的光子和亮度的映射是非线性关系：输入和输出是一个开根号2.2的曲线关系，把这种对映关系叫做gamma1&#x2F;2.2（ f(x)&#x3D;x^(1&#x2F;2.2) ），这种关系表现为人眼对暗部会更加敏感。3.相机拍摄的过程也是遵循线性关系的，有一个光子就记录一个光子的亮度。</p>
+<p>下图可以看到人眼和相机的成像曲线，粗略分析，当输入为50%时，线性的输出也是50%，而人眼感知曲线的输出却高达75%，这也解释了人眼为什么会对暗部更为敏感，因为它花费了更多的区域来解析暗部。</p>
+<img src="img1.png">
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>更详细一些，如下图所示，当物理的亮度从0只加到0.1时，人眼却认为增加了0.4。</p>
+<img src="img2.png">
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>此外，出于某种原因，显示器会对显示的图片颜色值进行gamma2.2的变换（ f(x)&#x3D;x^2.2 ）。也就是说，只要是我们从屏幕上（无论相机屏幕还是显示器屏幕）看到的画面都会对输出颜色值进行2.2次幂的变换。</p>
+<p>很多教程会提及类似显示器这种gamma2.2是恰好符合人眼的…我觉得这样理解反而会绕进去。其实人眼会对现实做gamma1&#x2F;2.2是个陷阱，我们不需要总是强调这件事情。只要知道现实世界是线性的，gamma1的，而我们需要在显示器上看到这样真实的世界，所以我们只需要保证显示器输出也要是gamma1的就行了。所以为了中和显示器的gamma2.2，会对记录的图片做gamma1&#x2F;2.2，使其整个系统最终输出为gamma1。这个过程就称为gamma校正。</p>
+<img src="img3.png">
+
+<p>在图形学中，在gamma校正之前，我们一直假设我们设置的颜色是在线性空间中的，即红色（1.0，0，0）是（0.5，0，0）两倍，但是实际是它在显示器输出的时候会做gamma2.2的变换：1.0^2.2&#x3D;1.0；0.5^2.2&#x3D;0.218。我们认为的两倍实际输出上却是4.5倍左右。</p>
+<p>在拍照时，图片存储时会自动做gamma编码（gamma1&#x2F;2.2）来中和最终的输出，但是图形学是我们自己做图片，因此需要效仿这个gamma编码的过程，也即gamma校正。</p>
+<h5 id="一句话概括：现实是gamma1，我们需要从显示器看到现实，所以需要gamma1-2-2中和显示器的gamma2-2。"><a href="#一句话概括：现实是gamma1，我们需要从显示器看到现实，所以需要gamma1-2-2中和显示器的gamma2-2。" class="headerlink" title="一句话概括：现实是gamma1，我们需要从显示器看到现实，所以需要gamma1&#x2F;2.2中和显示器的gamma2.2。"></a><em>一句话概括：现实是gamma1，我们需要从显示器看到现实，所以需要gamma1&#x2F;2.2中和显示器的gamma2.2。</em></h5><p><strong>sRGB</strong></p>
+<p>sRGB好像也挺绕人的呢，简单来说就是我们在显示器上看到的纹理等是基于gamma2.2的非线性空间，而我们在图形编程中使用纹理时，若要做变换，必须是基于线性空间的，所以需要对sRGB纹理做一次重校，使其变回线性空间。在OpenGL中这么写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">float gamma = 2.2;</span><br><span class="line">vec3 diffuseColor = pow(texture(diffuse, texCoords).rgb, vec3(gamma));</span><br></pre></td></tr></table></figure>
+
+<p>注意，有关颜色的图，例如漫反射，是需要考虑sRGB转线性的，而法线贴图等是直接定义在线性空间中的，不需要重校。</p>
+<p><strong>后记</strong></p>
+<p>在给同学解释gamma校正的时候，我想到怎么样才能避开“人眼会做gamma1&#x2F;2.2”来理解，想象这样一个画面：我用相机拍一个苹果，把拍出的图片（记为图1）呈现在显示器上，然后再相机拍摄显示器上呈现的苹果（不考虑屏幕分辨率，记为图2）。如果最终图1&#x3D;图2，那就是对的。</p>
 
     </article>
     
     <div class="read-nums">
       <!-- id 将作为查询条件 -->
-      <span id="2023/12/07/hello-world/" class="leancloud_visitors" data-flag-title="Your Article Title">
+      <span id="2023/12/21/Gamma校正/" class="leancloud_visitors" data-flag-title="Your Article Title">
         <em class="post-meta-item-text">浏览量</em>
         <i class="leancloud-visitors-count"></i>
       </span>
@@ -407,16 +417,16 @@
     <div class="article-catelogue--wrapper">
       <div class="catelogue catelogue-1">
         <h3>目录</h3>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Gamma%E6%A0%A1%E6%AD%A3"><span class="toc-number">1.</span> <span class="toc-text">Gamma校正</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%A6%82%E6%8B%AC%EF%BC%9A%E7%8E%B0%E5%AE%9E%E6%98%AFgamma1%EF%BC%8C%E6%88%91%E4%BB%AC%E9%9C%80%E8%A6%81%E4%BB%8E%E6%98%BE%E7%A4%BA%E5%99%A8%E7%9C%8B%E5%88%B0%E7%8E%B0%E5%AE%9E%EF%BC%8C%E6%89%80%E4%BB%A5%E9%9C%80%E8%A6%81gamma1-2-2%E4%B8%AD%E5%92%8C%E6%98%BE%E7%A4%BA%E5%99%A8%E7%9A%84gamma2-2%E3%80%82"><span class="toc-number">1.0.0.0.1.</span> <span class="toc-text">一句话概括：现实是gamma1，我们需要从显示器看到现实，所以需要gamma1&#x2F;2.2中和显示器的gamma2.2。</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
       </div>
       
         <div class="catelogue catelogue-2">
+           
           
             <p>
-              <span>上一篇：</span>
+              <span>下一篇</span>
               <a href="/2023/12/08/GPU-Gems-Water-Simulation-上/">(GPU Gems)Water Simulation(上)</a>
             </p>
-           
           
         </div>
       
@@ -437,7 +447,7 @@
     recordIP: config.recordIP,
     visitor: config.visitor,
     enableQQ: config.enableQQ,
-    path: '2023/12/07/hello-world/'
+    path: '2023/12/21/Gamma校正/'
   })
 </script>
 
